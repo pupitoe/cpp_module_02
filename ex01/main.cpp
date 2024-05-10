@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 13:53:43 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/10 17:48:34 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:53:40 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,17 @@
 
 int	main(void)
 {
-	{
-		Fixed a;
-		Fixed b( a );
-		Fixed c;
-		c = b;
-		std::cout << a.getRawBits() << std::endl;
-		std::cout << b.getRawBits() << std::endl;
-		std::cout << c.getRawBits() << std::endl;
-	}
-	//{
-	//	Fixed	a;
-		
-	//	a.setRawBits(72);
-	//	std::cout << "a:" << a.getRawBits() << "\n\n";
-		
-	//	Fixed	b( a );
-	//	std::cout << "b:" << b.getRawBits() << "\n\n";
-	//	b.setRawBits(12);
-	//	std::cout << "b:" << b.getRawBits() << "\n\n";
-	//	std::cout << "a:" << a.getRawBits() << "\n\n";
-
-	//	Fixed	c;
-	//	c = b;
-	//	std::cout << "c:" << c.getRawBits() << "\n\n";
-	//	c.setRawBits(42);
-	//	std::cout << "c:" << c.getRawBits() << "\n\n";
-	//	std::cout << "b:" << b.getRawBits() << "\n\n";
-	//	std::cout << "a:" << a.getRawBits() << "\n\n";
-	//}
-	return (0);
+	Fixed a;
+	Fixed const b( 10 );
+	Fixed const c( 42.42f );
+	Fixed const d( b );
+	a = Fixed( 1234.4321f );
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 }

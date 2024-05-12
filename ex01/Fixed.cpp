@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 13:53:39 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/12 14:12:44 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/12 18:59:39y tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,30 @@ Fixed::Fixed( void ): _number(0U)
 Fixed::Fixed( int const digit )
 {
 	std::cout << "Int constructor called\n";
-	this->_number = digit << this->_shift;
+	this->setRawBits(digit << this->_shift);
+	return ;
+}
+
+Fixed::Fixed( float const digit_plus )
+{
+	std::cout << "Float constructor called\n";
+	this->setRawBits((int)roundf((digit_plus) * (1 << this->_shift)));
 	return ;
 }
 
 int	Fixed::toInt( void ) const
 {
-	return (this->_number >> this->_shift);
+	return (this->getRawBits() >> (this->_shift));
+}
+
+float	Fixed::toFloat( void ) const
+{
+	return (((float)this->getRawBits() / (1 << this->_shift)));
 }
 
 Fixed::~Fixed( void )
 {
-	std::cout <<"Destructor called\n";
+	std::cout << "Destructor called\n";
 	return ;
 }
 
@@ -45,14 +57,12 @@ Fixed::Fixed( Fixed const& data )
 
 int	Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called\n";
 	return (this->_number);
 }
 
 
 void	Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function called\n";
 	this->_number = raw;
 	return ;
 }
@@ -60,6 +70,12 @@ void	Fixed::setRawBits( int const raw )
 Fixed&	Fixed::operator=( Fixed const& data )
 {
 	std::cout << "Copy assignment operator called\n";
-	this->_number = data.getRawBits();
+	this->setRawBits(data.getRawBits());
 	return (*this);
+}
+
+std::ostream& operator<<(std::ostream& o, Fixed const& fix)
+{
+	o << fix.toFloat();
+	return (o);
 }

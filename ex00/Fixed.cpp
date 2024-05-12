@@ -6,13 +6,13 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 13:53:39 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/10 17:46:17 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/12 14:34:38 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed( void ): _number(0)
+Fixed::Fixed( void ): _number(0U)
 {
 	std::cout << "Default constructor called\n";
 	return ;

@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 13:53:41 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/10 18:04:56 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/12 14:05:51 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	Fixed
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
-		float	toInt( void ) const;
+		int		toInt( void ) const;
 };
 
 std::iostream& operator<<(std::iostream& o, Fixed const& fix);

@@ -6,14 +6,14 @@
 #    By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 13:53:46 by tlassere          #+#    #+#              #
-#    Updated: 2024/05/13 12:55:20 by tlassere         ###   ########.fr        #
+#    Updated: 2024/05/13 12:58:59 by tlassere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			::= c++
 CXXFLAGS	::= -Wall -Wextra -Werror -std=c++98
-NAME		::= Towards_a_more_useful_fixed-point_number_class
-SOURCES		::= main.cpp Fixed.cpp
+NAME		::= Now_we_re_talking
+SOURCES		::= main.cpp Fixed.cpp Fixed_operator.cpp
 OBJS		::= $(SOURCES:.cpp=.o)
 
 all: $(NAME)

@@ -34,6 +34,11 @@ class	Fixed
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
+	
+		static Fixed	min(Fixed& a, Fixed& b);
+		static Fixed	max(Fixed& a, Fixed& b);
+		static Fixed	min(Fixed const& a, Fixed const& b);
+		static Fixed	max(Fixed const& a, Fixed const& b);
 
 		int	operator<(Fixed const& cmp) const;
 		int	operator>(Fixed const& cmp) const;
@@ -46,6 +51,11 @@ class	Fixed
 		Fixed	operator-(Fixed const& arithmetic) const;
 		Fixed	operator/(Fixed const& arithmetic) const;
 		Fixed	operator*(Fixed const& arithmetic) const;
+
+		Fixed&	operator++( void );
+		Fixed	operator++(int);
+		Fixed&	operator--( void );
+		Fixed	operator--(int);
 };
 
 std::ostream& operator<<(std::ostream& o, Fixed const& fix);

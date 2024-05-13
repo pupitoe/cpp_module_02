@@ -6,24 +6,21 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 13:53:43 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/13 15:56:37 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:17:07 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int	main(void)
+int main( void )
 {
-	float	va = -1000000000000.0f;
-	float	vb = -189.8f;
-	Fixed a(va);
-	Fixed const b(vb);
-
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	std::cout << a.toInt() << std::endl;
-	std::cout << b.toInt() << std::endl;
-	std::cout << a / b << std::endl;
-	std::cout << va / vb << std::endl;
-
+	std::cout << Fixed::max( a, b ) << std::endl;
 }

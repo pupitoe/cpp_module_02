@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:58:36 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/13 15:57:24 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:14:23 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,40 @@ Fixed	Fixed::operator/(Fixed const& arithmetic) const
 	else
 		frac.setRawBits(0);
 	return (frac);
+}
+
+Fixed&	Fixed::operator--( void )
+{
+	int bits;
+	
+	bits = this->getRawBits();
+	bits--;
+	this->setRawBits(bits);
+	return *this;
+}
+
+Fixed	Fixed::operator--( int )
+{
+	Fixed	buffer(*this);
+
+	--*this;
+	return (buffer);
+}
+
+Fixed&	Fixed::operator++( void )
+{
+	int bits;
+	
+	bits = this->getRawBits();
+	bits++;
+	this->setRawBits(bits);
+	return *this;
+}
+
+Fixed	Fixed::operator++( int )
+{
+	Fixed	buffer(*this);
+
+	++*this;
+	return (buffer);
 }

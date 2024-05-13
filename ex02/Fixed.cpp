@@ -14,20 +14,17 @@
 
 Fixed::Fixed( void ): _number(0U)
 {
-	std::cout << "Default constructor called\n";
 	return ;
 }
 
 Fixed::Fixed( int const digit )
 {
-	std::cout << "Int constructor called\n";
 	this->setRawBits(digit << this->_shift);
 	return ;
 }
 
 Fixed::Fixed( float const digit_plus )
 {
-	std::cout << "Float constructor called\n";
 	this->setRawBits((int)roundf((digit_plus) * (1 << this->_shift)));
 	return ;
 }
@@ -44,13 +41,11 @@ float	Fixed::toFloat( void ) const
 
 Fixed::~Fixed( void )
 {
-	std::cout << "Destructor called\n";
 	return ;
 }
 
 Fixed::Fixed( Fixed const& data )
 {
-	std::cout << "Copy constructor called\n";
 	*this = data;
 	return ;
 }
@@ -69,7 +64,6 @@ void	Fixed::setRawBits( int const raw )
 
 Fixed&	Fixed::operator=( Fixed const& data )
 {
-	std::cout << "Copy assignment operator called\n";
 	this->setRawBits(data.getRawBits());
 	return (*this);
 }
@@ -78,4 +72,45 @@ std::ostream& operator<<(std::ostream& o, Fixed const& fix)
 {
 	o << fix.toFloat();
 	return (o);
+}
+
+Fixed	Fixed::max(Fixed& a, Fixed& b)
+{
+	Fixed	buffer;
+	if (a > b)
+		buffer = a;
+	else
+		buffer = b;
+	return (buffer);
+}
+
+Fixed	Fixed::min(Fixed& a, Fixed& b)
+{
+	Fixed	buffer;
+	if (a < b)
+		buffer = a;
+	else
+		buffer = b;
+	return (buffer);
+}
+
+Fixed	Fixed::max(Fixed const& a, Fixed const& b)
+{
+	Fixed	buffer;
+
+	if (a > b)
+		buffer = a;
+	else
+		buffer = b;
+	return (buffer);
+}
+
+Fixed	Fixed::min(Fixed const& a, Fixed const& b)
+{
+	Fixed	buffer;
+	if (a < b)
+		buffer = a;
+	else
+		buffer = b;
+	return (buffer);
 }

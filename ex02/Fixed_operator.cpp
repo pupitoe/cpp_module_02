@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:58:36 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/13 15:04:48 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:57:24 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,27 @@ Fixed	Fixed::operator-(Fixed const& arithmetic) const
 
 Fixed	Fixed::operator*(Fixed const& arithmetic) const
 {
-	Fixed	mul;
-
-	mul.setRawBits((this->getRawBits() * arithmetic.getRawBits())
-		>> this->_shift);
+	Fixed		mul;
+	long int	tmp;
+	
+	tmp = static_cast<long int>(static_cast<long int>(this->getRawBits())
+		* static_cast<long int>(arithmetic.getRawBits())) >> this->_shift;
+	mul.setRawBits(tmp);
 	return (mul);
 }
 
 Fixed	Fixed::operator/(Fixed const& arithmetic) const
 {
-	Fixed	mul;
+	Fixed		frac;
+	long int	tmp;
 	
 	if (this->getRawBits() && arithmetic.getRawBits())
-		mul.setRawBits(((this->getRawBits() << this->_shift)
-			/ (arithmetic.getRawBits() << this->_shift)) << this->_shift);
+	{
+		tmp = static_cast<long int>(static_cast<long int>(this->getRawBits())
+			<< this->_shift) / (static_cast<long int>(arithmetic.getRawBits()));
+		frac.setRawBits(tmp);
+	}
 	else
-		mul.setRawBits(~0);
-	return (mul);
+		frac.setRawBits(0);
+	return (frac);
 }

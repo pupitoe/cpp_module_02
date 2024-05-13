@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 13:53:43 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/13 15:06:17 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:56:37 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(void)
 {
-	float	va = 0.0f;
-	float	vb = 16.8f;
+	float	va = -1000000000000.0f;
+	float	vb = -189.8f;
 	Fixed a(va);
 	Fixed const b(vb);
 

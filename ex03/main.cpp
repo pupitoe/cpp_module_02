@@ -14,9 +14,28 @@
 
 #include <cstdlib>
 
-int main( int argc, char **a )
+int main(void)
 {
-	(void)argc;
-	std::cout << bsp(Point(0, 0), Point(15, 16), Point(0, 16), Point(std::strtol(a[1], NULL, 10), std::strtol(a[2], NULL, 10)));
-	std::cout << "\n";
+	bool	bsp_test;
+
+	bsp_test = bsp(Point(0, 0), Point(10, 0), Point(0, 10), Point(5, 4));
+	std::cout << "is collide t1: " << bsp_test << std::endl;
+
+	bsp_test = bsp(Point(-10, -20), Point(10, 0), Point(0, 10), Point(5, 4));
+	std::cout << "is collide t2: " << bsp_test << std::endl;
+
+	bsp_test = bsp(Point(-10, -20), Point(10, 0), Point(0, 10), Point(0, -10));
+	std::cout << "is collide t3 (point in segment): " << bsp_test << std::endl;
+
+	bsp_test = bsp(Point(-10, -20), Point(10, 0),
+		Point(0, 10), Point(-5565, 55));
+	std::cout << "is collide t4: " << bsp_test << std::endl;
+
+	bsp_test = bsp(Point(-10.65f, -20.56f), Point(1.6f, 0.2f),
+		Point(-7.3f, -10.6f), Point(1.32f, -0.4f));
+	std::cout << "is collide t5: " << bsp_test << std::endl;
+	
+	bsp_test = bsp(Point(-10.65f, -20.56f), Point(1.6f, 0.2f),
+		Point(-7.3f, -10.6f), Point(1.24f, -0.32f));
+	std::cout << "is collide t6: " << bsp_test << std::endl;
 }

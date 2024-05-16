@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:47:26 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/14 20:04:34 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:09:00 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Point::~Point( void )
 
 Point::Point( Point const& val ): x(val.getx()), y(val.gety())
 {
-	std::cout << "call ing" << std::endl;
 	(void)val;
 	return ;
 }
@@ -49,5 +48,3 @@ Fixed	Point::gety( void ) const
 {
 	return (this->y);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:47:34 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/14 20:15:36 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:53:17 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,22 @@ Fixed	ft_get_sign(Point const p1, Point const p2, Point const p3)
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	Fixed	test1;
-	Fixed	test2;
-	Fixed	test3;
-	Fixed	AREA;
+	Fixed	a_b_segment;
+	Fixed	b_c_segment;
+	Fixed	c_a_segment;
 	bool	positif;
 	bool	negatif;
 	
-	test1 = ft_get_sign(point, a, b);
-	test2 = ft_get_sign(point, b, c);
-	test3 = ft_get_sign(point, c, a);
-	positif = (test1.toFloat() >= 0 || test2.toFloat() >= 0
-		|| test3.toFloat() >= 0);
-	negatif = (test1.toFloat() <= 0 || test2.toFloat() <= 0
-		|| test3.toFloat() <= 0);
-	std::cout << test2.toInt() << std::endl;
-	std::cout << test2.toInt() << std::endl;
-	std::cout << test3 << std::endl;
-	std::cout << positif << std::endl;
-	std::cout << negatif<< std::endl;
+	a_b_segment = ft_get_sign(point, a, b);
+	b_c_segment = ft_get_sign(point, b, c);
+	c_a_segment = ft_get_sign(point, c, a);
+	positif = (a_b_segment >= 0 || b_c_segment >= 0 || c_a_segment >= 0);
+	negatif = (a_b_segment <= 0 || b_c_segment <= 0 || c_a_segment <= 0);
+	// Value of segment
+	//std::cout << "A B: " << a_b_segment.toInt() << std::endl;
+	//std::cout << "B C: " << b_c_segment.toInt() << std::endl;
+	//std::cout << "C A: " << c_a_segment.toInt() << std::endl;
+	//std::cout << positif << std::endl;
+	//std::cout << negatif<< std::endl;
 	return (!(negatif && positif));
 }

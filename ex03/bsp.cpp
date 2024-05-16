@@ -6,13 +6,13 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:47:34 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/16 13:53:17 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:27:13 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Fixed	ft_get_sign(Point const p1, Point const p2, Point const p3)
+static Fixed	ft_get_sign(Point const p1, Point const p2, Point const p3)
 {
 	Fixed	signe;
 
